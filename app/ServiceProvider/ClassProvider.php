@@ -78,6 +78,7 @@ class ClassProvider implements ServiceProviderInterface
             'TaskProjectDuplicationModel',
             'TaskProjectMoveModel',
             'TaskRecurrenceModel',
+            'TaskExecutorModel',
             'TaskExternalLinkModel',
             'TaskFinderModel',
             'TaskFileModel',

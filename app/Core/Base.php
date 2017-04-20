@@ -132,6 +132,7 @@ use Pimple\Container;
  * @property \Kanboard\Model\TaskProjectDuplicationModel             $taskProjectDuplicationModel
  * @property \Kanboard\Model\TaskProjectMoveModel                    $taskProjectMoveModel
  * @property \Kanboard\Model\TaskRecurrenceModel                     $taskRecurrenceModel
+ * @property \Kanboard\Model\TaskExecutorModel                       $taskExecutorModel
  * @property \Kanboard\Model\TaskExternalLinkModel                   $taskExternalLinkModel
  * @property \Kanboard\Model\TaskFinderModel                         $taskFinderModel
  * @property \Kanboard\Model\TaskLinkModel                           $taskLinkModel
