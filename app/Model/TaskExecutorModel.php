@@ -29,7 +29,7 @@ class TaskExecutorModel extends Base
     public function getUsersByTask($task_id)
     {
         return $this->db->table(UserModel::TABLE)
-            ->columns(UserModel::TABLE.'.id', UserModel::TABLE.'.username', UserModel::TABLE.'name')
+            ->columns(UserModel::TABLE.'.id', UserModel::TABLE.'.username', UserModel::TABLE.'.name')
             ->eq(self::TABLE.'.task_id', $task_id)
             ->join(self::TABLE, 'user_id', 'id')
             ->findAll();
@@ -68,7 +68,7 @@ class TaskExecutorModel extends Base
     public function getList($task_id)
     {
         $users = $this->getUsersByTask($task_id);
-        return array_column($users, 'id');
+        return array_column($users, 'username', 'id');
     }
 
     /**
@@ -153,7 +153,7 @@ class TaskExecutorModel extends Base
      */
     protected function dissociateUsers($task_id, $task_users, $users)
     {
-        foreach ($task_users as $user_id) {
+        foreach ($task_users as $user_id => $user_name) {
             if (! in_array($user_id, $users)) {
                 if (! $this->dissociateUser($task_id, $user_id)) {
                     return false;

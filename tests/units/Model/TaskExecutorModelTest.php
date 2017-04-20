@@ -79,19 +79,19 @@ class TaskExecutorModelTest extends Base
             1 => array(
                 array(
                     'id' => 2,
-                    'username' => 'user2'
+                    'username' => 'user2',
                     'name' => 'name2',
                     'task_id' => 1
                 ),
                 array(
                     'id' => 3,
-                    'username' => 'user3'
+                    'username' => 'user3',
                     'name' => 'name3',
                     'task_id' => 1
                 ),
                 array(
                     'id' => 4,
-                    'username' => 'user4'
+                    'username' => 'user4',
                     'name' => 'name4',
                     'task_id' => 1
                 ),
@@ -99,9 +99,9 @@ class TaskExecutorModelTest extends Base
             2 => array(
                 array(
                     'id' => 3,
-                    'username' => 'user3'
+                    'username' => 'user3',
                     'name' => 'name3',
-                    'task_id' => 1
+                    'task_id' => 2
                 )
             )
         );
@@ -126,7 +126,7 @@ class TaskExecutorModelTest extends Base
 
         $this->assertTrue($taskExecutorModel->save(1, 1, array(2, 3, 4)));
 
-        $users = $taskTagModel->getUsersByTaskIds(array());
+        $users = $taskExecutorModel->getUsersByTaskIds(array());
         $this->assertEquals(array(), $users);
     }
 }
