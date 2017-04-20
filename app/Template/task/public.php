@@ -2,6 +2,7 @@
     <?= $this->render('task/details', array(
         'task' => $task,
         'tags' => $tags,
+        'executors' => $executors,
         'project' => $project,
         'editable' => false,
     )) ?>

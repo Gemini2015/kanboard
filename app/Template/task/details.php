@@ -156,6 +156,15 @@
                 </ul>
             </div>
         <?php endif ?>
+        <?php if (! empty($executors)): ?>
+            <div class="task-tags">
+                <ul>
+                    <?php foreach ($executors as $executor): ?>
+                        <li><?= $this->text->e($executor['username']) ?></li>
+                    <?php endforeach ?>
+                </ul>
+            </div>
+        <?php endif ?>
     </div>
 
     <?php if (! empty($task['external_uri']) && ! empty($task['external_provider'])): ?>

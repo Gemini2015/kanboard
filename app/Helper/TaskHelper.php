@@ -83,6 +83,28 @@ class TaskHelper extends Base
         return $html;
     }
 
+    public function renderExecutorField(array $project, array $executors = array())
+    {
+        $users = $this->userModel->getAll();
+
+        $html = $this->helper->form->label(t('executors'), 'executors[]');
+        $html .= '<input type="hidden" name="executors[]" value="">';
+        $html .= '<select name="executors[]" id="form-executors" class="executors-autocomplete" multiple>';
+
+        foreach ($users as $user) {
+            $html .= sprintf(
+                '<option value="%s" %s>%s</option>',
+                $this->helper->text->e($user['id']),
+                in_array($user['id'], $executors) ? 'selected="selected"' : '',
+                $this->helper->text->e($user['name'])
+            );
+        }
+
+        $html .= '</select>';
+
+        return $html;
+    }
+
     public function renderColorField(array $values)
     {
         $colors = $this->colorModel->getList();

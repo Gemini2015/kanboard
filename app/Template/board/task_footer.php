@@ -28,6 +28,16 @@
     </div>
 <?php endif ?>
 
+<?php if (! empty($task['executors'])): ?>
+    <span class="task-tags">
+        <ul>
+        <?php foreach ($task['executors'] as $executor): ?>
+            <li><?= $this->text->e($executor['username']) ?></li>
+        <?php endforeach ?>
+        </ul>
+    </span>
+<?php endif ?>
+
 <div class="task-board-icons">
     <div class="task-board-icons-row">
         <?php if ($task['reference']): ?>

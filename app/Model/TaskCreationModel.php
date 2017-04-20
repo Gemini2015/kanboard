@@ -29,6 +29,11 @@ class TaskCreationModel extends Base
             unset($values['tags']);
         }
 
+        if (isset($values['executors'])) {
+            $executors = $values['executors'];
+            unset($values['executors']);
+        }
+
         $this->prepare($values);
         $task_id = $this->db->table(TaskModel::TABLE)->persist($values);
 
@@ -39,6 +44,10 @@ class TaskCreationModel extends Base
 
             if (! empty($tags)) {
                 $this->taskTagModel->save($values['project_id'], $task_id, $tags);
+            }
+
+            if (! empty($executors)) {
+                $this->taskExecutorModel->save($values['project_id'], $task_id, $executors);
             }
 
             $this->queueManager->push($this->taskEventJob->withParams(
