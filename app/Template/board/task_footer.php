@@ -32,7 +32,11 @@
     <span class="task-tags">
         <ul>
         <?php foreach ($task['executors'] as $executor): ?>
-            <li><?= $this->text->e($executor['name']) ?></li>
+            <?php if (! empty($executor['name'])): ?>
+                <li><?= $this->text->e($executor['name']) ?></li>
+            <?php else: ?>
+                <li><?= $this->text->e($executor['username']) ?></li>
+            <?php endif ?>
         <?php endforeach ?>
         </ul>
     </span>

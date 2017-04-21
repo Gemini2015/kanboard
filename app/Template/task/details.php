@@ -161,7 +161,11 @@
                 <strong><?= $this->text->e(t('Executors')) ?></strong>
                 <ul>
                     <?php foreach ($executors as $executor_id => $executor ): ?>
-                        <li><?= $this->text->e($executor['name']) ?></li>
+                        <?php if (! empty($executor['name'])): ?>
+                            <li><?= $this->text->e($executor['name']) ?></li>
+                        <?php else: ?>
+                            <li><?= $this->text->e($executor['username']) ?></li>
+                        <?php endif ?>
                     <?php endforeach ?>
                 </ul>
             </div>

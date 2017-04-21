@@ -92,11 +92,18 @@ class TaskHelper extends Base
         $html .= '<select name="executors[]" id="form-executors" class="executors-autocomplete" multiple>';
 
         foreach ($users as $user) {
+            $name = '';
+            if ($name === '') {
+                $name = $user['username'];
+            } else {
+                $name = $user['name'];
+            }
+
             $html .= sprintf(
                 '<option value="%s" %s>%s</option>',
                 $this->helper->text->e($user['id']),
                 isset($executors[$user['id']]) ? 'selected="selected"' : '',
-                $this->helper->text->e($user['name'])
+                $this->helper->text->e($name)
             );
         }
 
