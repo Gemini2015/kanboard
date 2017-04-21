@@ -87,7 +87,7 @@ class TaskHelper extends Base
     {
         $users = $this->userModel->getAll();
 
-        $html = $this->helper->form->label(t('executors'), 'executors[]');
+        $html = $this->helper->form->label(t('Executors'), 'executors[]');
         $html .= '<input type="hidden" name="executors[]" value="">';
         $html .= '<select name="executors[]" id="form-executors" class="executors-autocomplete" multiple>';
 
@@ -95,7 +95,7 @@ class TaskHelper extends Base
             $html .= sprintf(
                 '<option value="%s" %s>%s</option>',
                 $this->helper->text->e($user['id']),
-                in_array($user['id'], $executors) ? 'selected="selected"' : '',
+                isset($executors[$user['id']]) ? 'selected="selected"' : '',
                 $this->helper->text->e($user['name'])
             );
         }

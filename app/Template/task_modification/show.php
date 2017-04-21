@@ -10,8 +10,8 @@
         <div class="task-form-main-column">
             <?= $this->task->renderTitleField($values, $errors) ?>
             <?= $this->task->renderDescriptionField($values, $errors) ?>
-            <?= $this->task->renderTagField($project, $tags) ?>
             <?= $this->task->renderExecutorField($project, $executors) ?>
+            <?= $this->task->renderTagField($project, $tags) ?>
 
             <?= $this->hook->render('template:task:form:first-column', array('values' => $values, 'errors' => $errors)) ?>
         </div>

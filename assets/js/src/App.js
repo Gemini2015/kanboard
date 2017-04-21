@@ -30,6 +30,7 @@ Kanboard.App.prototype.execute = function() {
     this.datePicker();
     this.autoComplete();
     this.tagAutoComplete();
+    this.executorAutoComplete();
 };
 
 Kanboard.App.prototype.focus = function() {
@@ -71,6 +72,12 @@ Kanboard.App.prototype.datePicker = function() {
 
 Kanboard.App.prototype.tagAutoComplete = function() {
     $(".tag-autocomplete").select2({
+        tags: true
+    });
+};
+
+Kanboard.App.prototype.executorAutoComplete = function() {
+    $(".executors-autocomplete").select2({
         tags: true
     });
 };

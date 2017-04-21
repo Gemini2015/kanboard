@@ -158,9 +158,10 @@
         <?php endif ?>
         <?php if (! empty($executors)): ?>
             <div class="task-tags">
+                <strong><?= $this->text->e(t('Executors')) ?></strong>
                 <ul>
-                    <?php foreach ($executors as $executor): ?>
-                        <li><?= $this->text->e($executor['username']) ?></li>
+                    <?php foreach ($executors as $executor_id => $executor ): ?>
+                        <li><?= $this->text->e($executor['name']) ?></li>
                     <?php endforeach ?>
                 </ul>
             </div>

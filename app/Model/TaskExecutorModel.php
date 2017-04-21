@@ -68,7 +68,7 @@ class TaskExecutorModel extends Base
     public function getList($task_id)
     {
         $users = $this->getUsersByTask($task_id);
-        return array_column($users, 'username', 'id');
+        return array_column_index_unique($users, 'id');
     }
 
     /**

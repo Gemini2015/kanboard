@@ -63,6 +63,7 @@
         _KB.datePicker();
         _KB.autoComplete();
         _KB.tagAutoComplete();
+        _KB.executorAutoComplete();
         _KB.get('Task').onPopoverOpened();
     }
 
