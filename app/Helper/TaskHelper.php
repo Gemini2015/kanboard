@@ -92,11 +92,9 @@ class TaskHelper extends Base
         $html .= '<select name="executors[]" id="form-executors" class="executors-autocomplete" multiple>';
 
         foreach ($users as $user) {
-            $name = '';
+            $name = $name = $user['name'];
             if ($name === '') {
                 $name = $user['username'];
-            } else {
-                $name = $user['name'];
             }
 
             $html .= sprintf(
